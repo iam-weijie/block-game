@@ -1,5 +1,13 @@
 # block-game
 
+## The Game
+Run `space_holder` to play.
+
+The game is played on a randomly-generated game board made of squares of four different colors,
+such as the following:
+
+`another space holder for image`
+
 ## Rules
 Each player is randomly assigned their own goal to work towards: either to create the largest
 connected “blob” of a given color or to put as much of a given color on the outer perimeter as
