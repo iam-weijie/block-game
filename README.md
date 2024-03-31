@@ -21,6 +21,7 @@ There are three kinds of moves a player can do:
 the origin of the axes being place in the center of the block), and
 
 • “smashing” a block (giving it four brand-new, randomly generated, sub-blocks).
+
 After each move, the player sees their score, determined by how well they have achieved their goal.
 The game continues for a certain number of turns, and the player with the highest score at the end
 is the winner.
