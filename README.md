@@ -1,17 +1,26 @@
-# block-game
+# Block Game
 
-## The Game
-Run `space_holder` to play.
+Run `BlockGame` to play.
 
 The game is played on a randomly-generated game board made of squares of four different colors,
 such as the following:
 
-`another space holder for image`
+![Gameplay](gameplay.png)
 
 ## Rules
-Each player is randomly assigned their own goal to work towards: either to create the largest
-connected “blob” of a given color or to put as much of a given color on the outer perimeter as
-possible.
+
+At the beginning of the game, each player is assigned a randomly-generated goal. There are two
+types of goal:
+
+- _Blob goal_. The player must aim to create the largest “blob” of a given color c. A blob is a group
+  of orthogonally connected blocks with the same color. That is, two blocks are considered
+  connected if their sides touch; touching corners does not count. The player’s score is the
+  number of unit cells in the largest blob of color c.
+
+- _Perimeter goal_. The player must aim to put the most possible units of a given color c on the
+  outer perimeter of the board. The player’s score is the total number of unit cells of color c
+  that are on the perimeter. There is a premium on corner cells: they count twice towards the
+  score.
 
 There are three kinds of moves a player can do:
 
@@ -27,5 +36,6 @@ The game continues for a certain number of turns, and the player with the highes
 is the winner.
 
 ## What's next for Block Game
-Different types of goals could be added, or computer players can be implemented so that players can challenge themselves against an AI. 
+
+Different types of goals could be added, or computer players can be implemented so that players can challenge themselves against an AI.
 The possibilities are endless ;)
