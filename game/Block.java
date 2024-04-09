@@ -279,16 +279,34 @@ public class Block {
    * Block.
    */
   public Color[][] flatten() {
-    Color[][] arr = new Color[(int) Math.pow(2, maxDepth)][(int) Math.pow(2, maxDepth)];
+    int unitSize = (int) Math.pow(2, this.maxDepth - this.level);
 
-    for (int i = 0; i < Math.pow(2, maxDepth); i++) {
-      for (int j = 0; j < Math.pow(2, maxDepth); j++) {
-        Block unitCell = getSelectedBlock(j * size / (int) Math.pow(2, maxDepth),
-            i * size / (int) Math.pow(2, maxDepth), maxDepth);
-        arr[i][j] = (unitCell != null) ? unitCell.color : null;
+    if (this.children.length == 0) {
+      Color[][] colorArray = new Color[unitSize][unitSize];
+      for (int i = 0; i < unitSize; i++) {
+        for (int j = 0; j < unitSize; j++) {
+          colorArray[i][j] = this.color;
+        }
       }
+      return colorArray;
+    } else {
+      Color[][] colorArray = new Color[unitSize][unitSize];
+      Color[][][] childArrays = new Color[4][][];
+      int childSize = unitSize / 2;
+      for (int i = 0; i < 4; i++) {
+        childArrays[i] = this.children[i].flatten();
+      }
+      for (int i = 0; i < childSize; i++) {
+        for (int j = 0; j < childSize; j++) {
+          colorArray[i][j] = childArrays[1][i][j]; // top-left
+          colorArray[i][j + childSize] = childArrays[0][i][j]; // top-right
+          colorArray[i + childSize][j] = childArrays[2][i][j]; // bottom-left
+          colorArray[i + childSize][j + childSize] = childArrays[3][i][j]; // bottom-right
+        }
+      }
+
+      return colorArray;
     }
-    return arr;
   }
 
   // These two get methods have been provided. Do NOT modify them.
